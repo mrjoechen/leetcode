@@ -28,7 +28,6 @@ public class TwoSum {
 
     public static void main(String[] args) {
 
-
         int[] array = {2, 7, 11, 15};
         int target = 9;
 
@@ -37,7 +36,15 @@ public class TwoSum {
     }
 
 
-
+    /**
+     *
+     * @param nums
+     * @param target
+     * @return
+     *
+     * 时间复杂度 O(n^2)
+     * 空间复杂度 O(n^2)
+     */
     public static int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {

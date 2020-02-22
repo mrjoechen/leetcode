@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * @Classname ZigzagConversion
  * @Description TODO
@@ -41,11 +43,44 @@ public class ZigzagConversion {
 
     public static void main(String[] args) {
 
+        convert("LEETCODEISHIRING", 2);
+        convert("LEETCODEISHIRING", 4);
+
     }
 
-    public String convert(String s, int numRows) {
+    public static String convert(String s, int numRows) {
 
 
-        return "";
+        if (s.length() <= numRows){
+            return s;
+        }
+
+        ArrayList<StringBuilder> stringBuilders = new ArrayList<>();
+
+        for (int i = 0; i < numRows; i++){
+            stringBuilders.add(new StringBuilder());
+        }
+
+        int middleSize = numRows > 2 ? numRows - 2 : 0;
+
+        int roundSize = numRows + middleSize;
+
+        for (int a = 0; a < s.length(); a++){
+            int t = a % roundSize;
+
+            if (t < numRows){
+                stringBuilders.get(t).append(s.charAt(a));
+            }else {
+                stringBuilders.get(stringBuilders.size() -1 - (t - numRows + 1)).append(s.charAt(a));
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (StringBuilder sss : stringBuilders){
+            System.out.println(sss);
+            result.append(sss);
+        }
+        System.out.println(result);
+        return result.toString();
     }
 }

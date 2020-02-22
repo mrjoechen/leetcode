@@ -1,3 +1,5 @@
+import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
 
@@ -11,6 +13,12 @@ public class Main {
 
         //判断两个数的符号是否相等  ^ 异或 相同 为 0
         System.out.println(((i >> 31) ^ (j >> 31)) == 0);
+
+
+        AtomicReference<Integer> atomicReference = new AtomicReference<>(0);
+        atomicReference.compareAndSet(0, 5);
+
+        AtomicIntegerFieldUpdater<Main> atomicIntegerFieldUpdater = AtomicIntegerFieldUpdater.newUpdater(Main.class, "aaa");
 
     }
 

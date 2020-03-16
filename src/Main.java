@@ -11,7 +11,7 @@ public class Main {
         System.out.println(Integer.toBinaryString(i));
         System.out.println(Integer.toBinaryString(j));
 
-        //判断两个数的符号是否相等  ^ 异或 相同 为 0
+        //判断两个数的符号是否相等  ^ 异或相同=0
         System.out.println(((i >> 31) ^ (j >> 31)) == 0);
 
 
